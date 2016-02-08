@@ -1,10 +1,6 @@
 function fireworks() {
-    var all = [
-        first
-    ];
-
     var first = {
-        startingTime: 1.0,
+        startingTime: 1000,
         angle: 90,
         speed: 10,
         color: {
@@ -12,7 +8,7 @@ function fireworks() {
             g: 100,
             b: 100
         },
-        timer: 3.0,
+        timer: 3000,
         onInit: function(factory) {
             first.variable = true;
         },
@@ -38,7 +34,7 @@ function fireworks() {
                         g: 0,
                         b: 0
                     },
-                    onTick: function(time change) {
+                    onTick: function(time) {
                         if (first.color.r > 0) {
                             first.color.r = first.color.r - 1;
                         }
@@ -47,6 +43,10 @@ function fireworks() {
             ]);
         }
     };
+
+    var all = [
+        first
+    ];
 
     return all;
 }

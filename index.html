@@ -17,15 +17,16 @@
         var inited = false;
 
         var game = fireworks();
+        var sketch = boot(game);
 
         function sketchProc(processing) {
             processing.draw = function() {
                 if (!inited) {
-                    game.init(processing);
+                    sketch.init(processing);
                     inited = true;
                 }
 
-                game.tick(processing);
+                sketch.tick(processing);
             };
         }
 
