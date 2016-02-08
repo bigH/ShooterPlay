@@ -9,23 +9,23 @@ function fireworks() {
             b: 100
         },
         timer: 3000,
-        onInit: function(factory) {
-            first.variable = true;
+        onInit: function(self, factory) {
+            self.variable = true;
         },
-        onTick: function(factory) {
+        onTick: function(self, factory) {
             console.log("variable: " + first.variable);
-            if (first.color.r > 0) {
-                first.color.r = first.color.r - 1;
+            if (self.color.r > 0) {
+                self.color.r = first.color.r - 1;
             }
-            if (first.color.g > 0) {
-                first.color.g = first.color.g - 1;
+            if (self.color.g > 0) {
+                self.color.g = first.color.g - 1;
             }
-            if (first.color.b > 0) {
-                first.color.b = first.color.b - 1;
+            if (self.color.b > 0) {
+                self.color.b = first.color.b - 1;
             }
         },
-        onExplode: function(factory) {
-            factory.projectile([
+        onExplode: function(self, factory) {
+            factory.projectile(self, [
                 {
                     angles: 12,
                     speed: 1.0,
@@ -34,9 +34,9 @@ function fireworks() {
                         g: 0,
                         b: 0
                     },
-                    onTick: function(time) {
-                        if (first.color.r > 0) {
-                            first.color.r = first.color.r - 1;
+                    onTick: function(inner_self, time) {
+                        if (inner_self.color.r > 0) {
+                            inner_self.color.r = inner_self.color.r - 1;
                         }
                     }
                 }
